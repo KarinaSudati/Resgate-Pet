@@ -1,3 +1,4 @@
+// componente para exibir as informações de um pet em um card
 function PetCard({ pet }) {
   const statusCor = (status) => {
     if (status === "desaparecido") return "bg-red-100 text-red-600";
