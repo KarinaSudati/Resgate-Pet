@@ -92,7 +92,7 @@ Hospedado na nuvem pelo **Supabase**.
 ## 🔗 Links
 
 - 🌐 **Deploy Back-end (Render):** https://resgate-pet.onrender.com/
-- 🖥️ **Deploy Front-end (Vercel):** _em breve_
+- 🖥️ **Deploy Front-end (Vercel):** https://resgate-pet-two.vercel.app/
 
 ## 🧠 Mais Importante
 
