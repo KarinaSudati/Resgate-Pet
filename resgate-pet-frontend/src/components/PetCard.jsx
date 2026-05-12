@@ -22,7 +22,7 @@ function PetCard({ pet }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+    <div className="flx flex-col flex-1">
       {/* Foto */}
       {pet.foto_url ? (
         <img

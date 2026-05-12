@@ -95,22 +95,26 @@ function ListaPets() {
           </div>
         )}
 
+        {/* Grid de pets */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pets.map((pet) => (
-            <div key={pet.id} className="flex flex-col">
+            <div
+              key={pet.id}
+              className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+            >
               <PetCard pet={pet} />
-              <div className="flex gap-3 w-full mt-4 ">
+              <div className="flex gap-2 px-4 pb-4">
                 <button
                   onClick={() => handleEditar(pet)}
-                  className="flex-1 flex items-center justify-center gap-2 gb-amber-50 text-mber-700 font-semibold py-2.5 rounded-lg hover:bg-blue-100 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-1 text-yellow-500 bg-yellow-50 hover:bg-yellow-100 font-medium py-1.5 rounded-full transition text-xs border border-yellow-200"
                 >
-                  <span>✏️</span>
+                  ✏️ Editar
                 </button>
                 <button
                   onClick={() => handleDeletar(pet.id)}
-                  className="flex-1 flex items-center justify-center gap-2 gb-amber-50 text-mber-700 font-semibold py-2.5 rounded-lg hover:bg-blue-100 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-1 text-red-400 bg-red-50 hover:bg-red-100 font-medium py-1.5 rounded-full transition text-xs border border-red-200"
                 >
-                  <span>🗑️</span>
+                  🗑️ Excluir
                 </button>
               </div>
             </div>
