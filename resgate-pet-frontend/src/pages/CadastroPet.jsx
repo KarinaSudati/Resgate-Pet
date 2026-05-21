@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { FcDownLeft } from "react-icons/fc";
+import { IoArrowBack } from "react-icons/io5";
 
 function CadastroPet() {
   const [form, setForm] = useState({
@@ -45,9 +45,9 @@ function CadastroPet() {
       <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-lg">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-1 text-blue-500 hover:text-blue-700 mb-4 transition"
+          className="cursor-pointer flex items-center gap-1 text-blue-500 hover:text-blue-700 mb-4 transition"
         >
-          <FcDownLeft size={24} /> Voltar
+          <IoArrowBack size={24} /> Voltar
         </button>
 
         <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center">
@@ -182,7 +182,7 @@ function CadastroPet() {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition mt-2"
+            className=" cursor-pointer bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition mt-2"
           >
             Cadastrar Pet
           </button>

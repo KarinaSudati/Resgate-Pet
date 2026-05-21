@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { FcDownLeft } from "react-icons/fc";
+import { IoArrowBack } from "react-icons/io5";
 
 function CadastroUsuario() {
   const [form, setForm] = useState({ nome: "", watsapp: "", email: "" });
@@ -30,13 +30,13 @@ function CadastroUsuario() {
         {/* Botão de voltar */}
         <button
           onClick={() => navigate(-1)}
-          className="text-blue-600 hover:text-blue-800 font-semibold mb-4"
+          className=" cursor-pointer text-blue-600 hover:text-blue-800 font-semibold mb-4"
         >
-          <FcDownLeft size={24} />
+          <IoArrowBack size={24} />
           Voltar
         </button>
 
-        <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center">
+        <h2 className=" cursor-pointer text-2xl font-bold text-blue-700 mb-6 text-center">
           👤 Cadastro de Usuário
         </h2>
 
@@ -93,7 +93,7 @@ function CadastroUsuario() {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition mt-2"
+            className=" cursor-pointer bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition mt-2"
           >
             Cadastrar
           </button>

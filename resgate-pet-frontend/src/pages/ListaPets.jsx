@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import PetCard from "../components/PetCard";
-import { FcDownLeft } from "react-icons/fc";
+import { IoArrowBack } from "react-icons/io5";
 
 function ListaPets() {
   const [pets, setPets] = useState([]);
@@ -65,9 +65,9 @@ function ListaPets() {
       <div className="max-w-5xl mx-auto">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-1 text-blue-500 hover:text-blue-700 mb-6 transition"
+          className="cursor-pointer flex items-center gap-1 text-blue-500 hover:text-blue-700 mb-6 transition"
         >
-          <FcDownLeft size={24} /> Voltar
+          <IoArrowBack size={24} /> Voltar
         </button>
 
         <h2 className="text-3xl font-bold text-blue-700 mb-8 text-center">
@@ -106,13 +106,13 @@ function ListaPets() {
               <div className="flex gap-2 px-4 pb-4">
                 <button
                   onClick={() => handleEditar(pet)}
-                  className="flex-1 flex items-center justify-center gap-1 text-yellow-500 bg-yellow-50 hover:bg-yellow-100 font-medium py-1.5 rounded-full transition text-xs border border-yellow-200"
+                  className=" cursor-pointer flex-1 flex items-center justify-center gap-1 text-yellow-500 bg-yellow-50 hover:bg-yellow-100 font-medium py-1.5 rounded-full transition text-xs border border-yellow-200"
                 >
                   ✏️ Editar
                 </button>
                 <button
                   onClick={() => handleDeletar(pet.id)}
-                  className="flex-1 flex items-center justify-center gap-1 text-red-400 bg-red-50 hover:bg-red-100 font-medium py-1.5 rounded-full transition text-xs border border-red-200"
+                  className=" cursor-pointer flex-1 flex items-center justify-center gap-1 text-red-400 bg-red-50 hover:bg-red-100 font-medium py-1.5 rounded-full transition text-xs border border-red-200"
                 >
                   🗑️ Excluir
                 </button>
@@ -231,13 +231,13 @@ function ListaPets() {
                 <button
                   type="button"
                   onClick={() => setPetEditando(null)}
-                  className="flex-1 border-2 border-gray-300 text-gray-600 font-bold py-3 rounded-lg hover:bg-gray-50 transition"
+                  className=" cursor-pointer flex-1 border-2 border-gray-300 text-gray-600 font-bold py-3 rounded-lg hover:bg-gray-50 transition"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition"
+                  className=" cursor-pointer flex-1 bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition"
                 >
                   Salvar
                 </button>
