@@ -1,108 +1,246 @@
 # 🐾 ResgatePet
 
-> **Um sistema para conectar animais resgatados a lares seguros.**
+Sistema para cadastrar pets resgatados, registrar lares temporários e conectar pessoas dispostas a ajudar em situações de emergência.
 
-## 💡 1. Apresentação da Ideia
+## Visão geral
 
-A ideia deste projeto surgiu a partir do desafio de criar soluções tecnológicas voltadas para o cenário das grandes enchentes e desastres naturais no Brasil. Ao acompanhar as notícias, percebi uma dor muito forte e silenciosa: a situação dos animais. Pensando nisso, decidi focar as minhas habilidades para tentar aliviar um pouco dessa dificuldade.
+O ResgatePet nasce como uma solução prática para organizar a ajuda durante e após desastres naturais, como enchentes e tragédias climáticas. Em momentos de caos, a falta de informação e a ausência de um canal centralizado dificultam o resgate e o acolhimento de animais abandonados ou deslocados.
 
-## 🎯 2. O Problema Escolhido
+Este projeto busca facilitar o cadastro de:
 
-Durante e após desastres climáticos ou enchentes, milhares de animais de estimação se perdem de suas famílias ou acabam desabrigados de forma abrupta.
-O problema central que este projeto busca resolver é a desorganização da informação no momento do resgate: **Como cadastrar rapidamente animais encontrados, registrar lares temporários disponíveis e conectar as pessoas que querem ajudar?**
+- pessoas voluntárias e apoiadoras;
+- animais resgatados ou perdidos;
+- lares temporários disponíveis para acolhimento.
 
-## 🚀 3. Solução Proposta
+## Problema que o projeto resolve
 
-A solução é o **ResgatePet**, um sistema de gerenciamento rápido. O objetivo do sistema é permitir o cadastro de:
+Quando ocorrem enchentes ou desastres, muitos animais ficam desorientados, separados de suas famílias e sem local seguro para ficar. A falta de organização faz com que a comunicação entre resgatadores, voluntários e abrigo temporário seja lenta e ineficiente.
 
-- **Usuários:** Voluntários e pessoas dispostas a ajudar.
-- **Pets:** Registro detalhado dos animais resgatados (espécie, status, localização, foto e descrição).
-- **Lares Temporários:** Mapeamento de locais seguros para abrigar os animais até que reencontrem seus donos ou sejam adotados.
+O ResgatePet ajuda a centralizar esses dados em um sistema simples, acessível e funcional, permitindo que a rede de apoio se mobilize com mais rapidez.
 
-## 🏗️ 4. Estrutura do Sistema
+## Funcionalidades
 
-O projeto foi dividido em três partes principais para garantir organização e escalabilidade:
+- cadastro de usuários;
+- cadastro de pets com nome, espécie, status, localização, descrição e foto;
+- listagem de animais cadastrados;
+- cadastro de lares temporários;
+- visualização dos dados em interface intuitiva;
+- integração entre frontend, backend e banco de dados.
 
-### 🖥️ Front-end
+## Arquitetura do projeto
 
-Interface desenvolvida em **React** com **Vite**, estilizada com **Tailwind CSS v4**. Permite que qualquer pessoa utilize o sistema de forma visual e intuitiva pelo navegador.
+```mermaid
+flowchart LR
+    A[Frontend React + Vite] --> B[API Express]
+    B --> C[(PostgreSQL)]
+```
 
-**Páginas:**
+### Frontend
 
-- **Home** — Página inicial com apresentação do projeto e acesso rápido às funcionalidades.
-- **Cadastro de Usuário** — Formulário para registrar voluntários e pessoas dispostas a ajudar.
-- **Cadastro de Pet** — Formulário completo com nome, espécie, status, localização, descrição e URL da foto.
-- **Lista de Pets** — Exibe todos os pets cadastrados em cards, com opção de editar e excluir.
-- **Cadastro de Lar Temporário** — Formulário para oferecer abrigo para animais resgatados.
+O frontend foi desenvolvido em React com Vite e apresenta uma interface visual para os usuários cadastrarem dados e consultarem os animais disponíveis.
 
-**Componentes:**
+Principais telas:
 
-- **Navbar** — Menu de navegação responsivo com menu hamburguer para dispositivos móveis.
-- **PetCard** — Card reutilizável que exibe as informações de cada pet com foto, status colorido e data.
+- Home
+- Cadastro de usuário
+- Cadastro de pet
+- Lista de pets
+- Cadastro de lar temporário
 
-**Navegação:** React Router DOM para roteamento entre páginas sem recarregamento.
+### Backend
 
-**Comunicação com a API:** Axios para realizar as requisições HTTP ao back-end.
+A API foi construída com Node.js e Express e expõe rotas para manipular usuários, pets e lares temporários.
 
-### ⚙️ Back-end
+### Banco de dados
 
-API RESTful desenvolvida em **Node.js** com **Express** que recebe as informações, processa e se comunica com o banco de dados. Está hospedada no **Render**.
+O sistema utiliza PostgreSQL para armazenar as informações de forma estruturada e relacional.
 
-**Rotas disponíveis:**
+## Tecnologias utilizadas
 
-- `GET/POST/PUT/DELETE /usuarios`
-- `GET/POST/PUT/DELETE /pets`
-- `GET/POST/PUT/DELETE /lares-temporarios`
-
-### 🗄️ Banco de Dados
-
-Modelagem relacional em **PostgreSQL** com três tabelas conectadas:
-
-- **usuarios** — id, nome, watsapp, email, data_criacao
-- **pets** — id, usuario_id, nome_pet, especie, status, localizacao, descricao, foto_url, data_postagem
-- **lares_temporarios** — id, usuario_id, capacidade, especies_aceitas, observacoes, disponivel, data_cadastro
-
-Hospedado na nuvem pelo **Supabase**.
-
-## 💻 5. Tecnologias Usadas
-
-**Front-end:**
+### Frontend
 
 - React
 - Vite
-- Tailwind CSS v4
 - React Router DOM
 - Axios
 - React Icons
+- CSS moderno para a interface
 
-**Back-end:**
+### Backend
 
 - Node.js
 - Express
+- PostgreSQL driver (`pg`)
+- CORS
+- Dotenv
 
-**Banco de Dados:**
+### Infraestrutura
 
-- PostgreSQL (Supabase)
+- Render para backend
+- Vercel para frontend
+- Supabase para banco de dados
 
-**Deploy:**
+## Estrutura do repositório
 
-- Back-end: Render
-- Front-end: Vercel
+```bash
+ResgatePet/
+├── README.md
+├── banco/
+│   ├── lares_temporarios.sql
+│   ├── pets.sql
+│   └── usuarios.sql
+├── resgate-pet-backend/
+│   ├── package.json
+│   └── src/
+│       ├── app.js
+│       ├── server.js
+│       ├── config/
+│       │   └── db.js
+│       └── routes/
+│           ├── larestemporarios.js
+│           ├── pets.js
+│           └── usuarios.js
+└── resgate-pet-frontend/
+    ├── package.json
+    ├── index.html
+    ├── vite.config.js
+    ├── public/
+    └── src/
+        ├── App.css
+        ├── App.jsx
+        ├── index.css
+        ├── main.jsx
+        ├── assets/
+        ├── components/
+        │   ├── Navbar.jsx
+        │   └── PetCard.jsx
+        ├── pages/
+        │   ├── CadastroLar.jsx
+        │   ├── CadastroPet.jsx
+        │   ├── CadastroUsuario.jsx
+        │   ├── Home.jsx
+        │   └── ListaPets.jsx
+        └── services/
+            └── api.jsx
+```
 
-## 🔗 Links
+## Como rodar o projeto localmente
 
-- 🌐 **Deploy Back-end (Render):** https://resgate-pet.onrender.com/
-- 🖥️ **Deploy Front-end (Vercel):** https://resgate-pet-two.vercel.app/
+### 1. Clone o repositório
 
-## 🧠 Mais Importante
+```bash
+git clone https://github.com/KarinaSudati/Resgate-Pet.git
+cd Resgate-Pet
+```
 
-A construção deste projeto vai além das linhas de código. Este desafio não possui uma única resposta correta. O objetivo principal aqui é desenvolver:
+### 2. Configure o backend
 
-- **Pensamento Crítico** para entender o cenário de um desastre real.
-- **Análise de Problemas** para focar em uma dor específica (os pets desabrigados).
-- **Organização de Dados** modelando um banco relacional eficiente.
-- **Construção de Soluções com Tecnologia**, transformando lógica de programação em uma ferramenta que pode fazer a diferença na vida real.
+```bash
+cd resgate-pet-backend
+npm install
+```
+
+Crie um arquivo `.env` na pasta `resgate-pet-backend` com as variáveis do banco de dados, por exemplo:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=sua_senha
+DB_NAME=resgatepet
+```
+
+Inicie o servidor:
+
+```bash
+npm run dev
+```
+
+### 3. Configure o frontend
+
+```bash
+cd ../resgate-pet-frontend
+npm install
+npm run dev
+```
+
+A aplicação frontend ficará disponível no Vite localmente, normalmente em:
+
+```bash
+http://localhost:5173
+```
+
+## Endpoints principais da API
+
+A API expõe rotas relacionadas a usuários, pets e lares temporários:
+
+- `GET /usuarios`
+- `POST /usuarios`
+- `PUT /usuarios/:id`
+- `DELETE /usuarios/:id`
+- `GET /pets`
+- `POST /pets`
+- `PUT /pets/:id`
+- `DELETE /pets/:id`
+- `GET /lares-temporarios`
+- `POST /lares-temporarios`
+- `PUT /lares-temporarios/:id`
+- `DELETE /lares-temporarios/:id`
+
+## Estrutura do banco
+
+### Tabela `usuarios`
+
+- id
+- nome
+- whatsapp
+- email
+- data_criacao
+
+### Tabela `pets`
+
+- id
+- usuario_id
+- nome_pet
+- especie
+- status
+- localizacao
+- descricao
+- foto_url
+- data_postagem
+
+### Tabela `lares_temporarios`
+
+- id
+- usuario_id
+- capacidade
+- especies_aceitas
+- observacoes
+- disponivel
+- data_cadastro
+
+## Deploy
+
+- Backend: Render
+- Frontend: Vercel
+- Banco: PostgreSQL no Supabase
+
+## Links úteis
+
+- Backend: https://resgate-pet.onrender.com/
+- Frontend: https://resgate-pet-two.vercel.app/
+
+## Por que esse projeto importa
+
+Além de ser uma aplicação funcional, o ResgatePet representa uma solução voltada para impacto social. Ele combina:
+
+- pensamento crítico;
+- análise de problemas reais;
+- organização de dados;
+- uso de tecnologia para gerar ajuda concreta.
+
+O objetivo principal não é apenas criar uma aplicação, mas transformar uma ideia em uma ferramenta útil para pessoas e animais em situações vulneráveis.
 
 ---
 
-_Desenvolvido com dedicação por Karina Sudati. 🚀_
+Desenvolvido com dedicação por Karina Sudati. 🚀
