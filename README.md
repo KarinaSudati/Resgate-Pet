@@ -186,6 +186,7 @@ A API expõe rotas relacionadas a usuários, pets e lares temporários:
 - `POST /lares-temporarios`
 - `PUT /lares-temporarios/:id`
 - `DELETE /lares-temporarios/:id`
+- `GET /ping-db` (Rota para manter o banco de dados e servidor ativos)
 
 ## Estrutura do banco
 
@@ -224,6 +225,8 @@ A API expõe rotas relacionadas a usuários, pets e lares temporários:
 - Backend: Render
 - Frontend: Vercel
 - Banco: PostgreSQL no Supabase
+
+> **Nota de infraestrutura:** Para evitar que o servidor (Render) e o banco de dados (Supabase) entrem em estado de hibernação por inatividade nas versões gratuitas, foi configurado um cron-job que faz requisições periódicas para a rota `/ping-db`.
 
 ## Links úteis
 
